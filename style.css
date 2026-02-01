@@ -1,1 +1,75 @@
+/* Body Background */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('assets/keep/background.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
 
+/* Wooden Panel */
+.wooden-panel {
+  width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  background: url('assets/keep/wooden-panel.png') no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  width: 200px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+/* Inputs */
+.wooden-panel input {
+  width: 80%;
+  margin: 10px auto;
+  display: block;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: black;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 15px;
+}
+
+.buttons button {
+  margin: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons button img {
+  width: 150px;
+}
+
+/* Warning text */
+.warning-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ffdd00;
+}
+
+.warning-text input {
+  margin-left: 10px;
+  }
