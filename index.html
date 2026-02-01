@@ -7,24 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="loader"><div class="spinner"></div></div>
     <div id="toast-wrap"></div>
 
-    <div class="app-viewport">
-        <div class="wood-card">
-            <img src="assets/logo.png" class="logo">
-            <div class="welcome-text">Welcome To Tortuga Pitch</div>
+    <div class="app-frame">
+        <img src="assets/logo.png" class="logo">
 
+        <div id="view-home" style="text-align: center;">
+            <div style="color: #5d3112; font-weight: bold; margin-bottom: 20px;">Welcome To Tortuga Pitch</div>
             <img src="assets/signup-button.png" class="btn-img" id="signup-trigger">
+            <br>
             <img src="assets/login-button.png" class="btn-img" id="login-trigger">
+        </div>
 
-            <div class="warn-area">
+        <div id="view-auth" class="hidden" style="text-align: center;">
+            <input type="text" id="display-id" class="input-field" readonly>
+            <input type="text" id="display-key" class="input-field" readonly>
+            
+            <div class="warn-box">
                 <input type="checkbox" id="agree-check">
-                <div class="warn-text">I understand that I must save my credentials. No recovery is possible.</div>
+                <span class="warn-text">I understand that I must save my credentials. No recovery is possible.</span>
             </div>
 
-            <img src="assets/start-button.png" id="start-btn" class="btn-img">
+            <img src="assets/start-button.png" class="btn-img" id="start-btn">
+            <p onclick="location.reload()" style="cursor:pointer; color:#5d3112; font-size:12px; font-weight:bold;">BACK</p>
         </div>
     </div>
 
