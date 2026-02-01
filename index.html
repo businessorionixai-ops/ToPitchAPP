@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="container">
+
+    <!-- Wooden panel with Logo -->
+    <div class="wooden-panel">
+      <img src="assets/keep/logo.png" class="logo" alt="Casino Logo">
+
+      <!-- Inputs -->
+      <input type="text" id="userID" placeholder="ID">
+      <input type="password" id="password" placeholder="Password">
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button id="signupBtn"><img src="assets/keep/signup-button.png" alt="Sign Up"></button>
+        <button id="loginBtn"><img src="assets/keep/login-button.png" alt="Log In"></button>
+        <button id="startBtn" disabled><img src="assets/keep/start-button.png" alt="START"></button>
+      </div>
+
+      <!-- Warning -->
+      <p class="warning-text">
+        Please save your ID and Password securely. If lost, you will not be able to recover your account.
+        <input type="checkbox" id="agreeCheck"> I understand
+      </p>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+  </html>
