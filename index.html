@@ -6,26 +6,26 @@
     <title>Tortuga Pitch</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body oncontextmenu="return false;">
+<body>
 
+    <div id="loader"><div class="spinner"></div></div>
     <div id="toast-wrap"></div>
 
-    <div class="wood-card">
-        <img src="assets/logo.png" class="logo">
-        
-        <div class="welcome-text">Welcome To Tortuga Pitch</div>
+    <div class="app-viewport">
+        <div class="wood-card">
+            <img src="assets/logo.png" class="logo">
+            <div class="welcome-text">Welcome To Tortuga Pitch</div>
 
-        <div id="auth-section">
             <img src="assets/signup-button.png" class="btn-img" id="signup-trigger">
             <img src="assets/login-button.png" class="btn-img" id="login-trigger">
-        </div>
 
-        <div class="warn-area">
-            <input type="checkbox" id="agree-check">
-            <div class="warn-text">I understand that I must save my credentials. No recovery is possible on this pitch.</div>
-        </div>
+            <div class="warn-area">
+                <input type="checkbox" id="agree-check">
+                <div class="warn-text">I understand that I must save my credentials. No recovery is possible on this pitch.</div>
+            </div>
 
-        <img src="assets/start-button.png" id="start-btn" class="btn-img">
+            <img src="assets/start-button.png" id="start-btn" class="btn-img">
+        </div>
     </div>
 
     <script src="app.js"></script>
