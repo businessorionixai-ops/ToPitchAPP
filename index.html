@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casino Login</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tortuga Pitch</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body oncontextmenu="return false;">
 
-  <div class="container">
+    <div id="toast-wrap"></div>
 
-    <!-- Wooden panel with Logo -->
-    <div class="wooden-panel">
-      <img src="assets/keep/logo.png" class="logo" alt="Casino Logo">
+    <div class="wood-card">
+        <img src="assets/logo.png" class="logo">
+        
+        <div class="welcome-text">Welcome To Tortuga Pitch</div>
 
-      <!-- Inputs -->
-      <input type="text" id="userID" placeholder="ID">
-      <input type="password" id="password" placeholder="Password">
+        <div id="auth-section">
+            <img src="assets/signup-button.png" class="btn-img" id="signup-trigger">
+            <img src="assets/login-button.png" class="btn-img" id="login-trigger">
+        </div>
 
-      <!-- Buttons -->
-      <div class="buttons">
-        <button id="signupBtn"><img src="assets/keep/signup-button.png" alt="Sign Up"></button>
-        <button id="loginBtn"><img src="assets/keep/login-button.png" alt="Log In"></button>
-        <button id="startBtn" disabled><img src="assets/keep/start-button.png" alt="START"></button>
-      </div>
+        <div class="warn-area">
+            <input type="checkbox" id="agree-check">
+            <div class="warn-text">I understand that I must save my credentials. No recovery is possible on this pitch.</div>
+        </div>
 
-      <!-- Warning -->
-      <p class="warning-text">
-        Please save your ID and Password securely. If lost, you will not be able to recover your account.
-        <input type="checkbox" id="agreeCheck"> I understand
-      </p>
+        <img src="assets/start-button.png" id="start-btn" class="btn-img">
     </div>
 
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
-  </html>
+</html>
