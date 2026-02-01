@@ -1,62 +1,46 @@
-const agreeCheck = document.getElementById('agree-check');
-const startBtn = document.getElementById('start-btn');
-const loader = document.getElementById('loader');
-const signupTrigger = document.getElementById('signup-trigger');
-const loginTrigger = document.getElementById('login-trigger');
+// توليد البيانات
+const generateData = () => {
+    const id = Array.from({length: 15}, () => Math.floor(Math.random()*10)).join('');
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const key = Array.from({length: 30}, () => chars.charAt(Math.floor(Math.random()*chars.length))).join('');
+    return { id, key };
+};
 
-// توليد ID من 15 رقم
-function generateID() {
-    return Array.from({length: 15}, () => Math.floor(Math.random() * 10)).join('');
-}
+const views = ['view-home', 'view-auth'];
+const showView = (id) => {
+    views.forEach(v => document.getElementById(v).classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+};
 
-// توليد Key من 30 حرف ورقم ميكس
-function generateKey() {
-    const chars = "abcdef0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Array.from({length: 30}, () => chars.charAt(Math.floor(Math.random() * chars.length))).join('');
-}
+// Sign Up Logic
+document.getElementById('signup-trigger').onclick = () => {
+    const data = generateData();
+    document.getElementById('display-id').value = data.id;
+    document.getElementById('display-key').value = data.key;
+    showView('view-auth');
+    showMsg("CREDENTIALS GENERATED");
+};
 
-// لودينغ سريع جداً
-function fastLoad(callback) {
-    loader.style.display = 'flex';
-    setTimeout(() => {
-        loader.style.display = 'none';
-        callback();
-    }, 300); // 0.3 ثانية
-}
+// Login Logic
+document.getElementById('login-trigger').onclick = () => {
+    document.getElementById('display-id').value = "";
+    document.getElementById('display-id').placeholder = "ENTER YOUR ID";
+    document.getElementById('display-key').value = "";
+    document.getElementById('display-key').placeholder = "ENTER YOUR KEY";
+    showView('view-auth');
+};
 
-// تفعيل زر START
-agreeCheck.addEventListener('change', function() {
-    if(this.checked) startBtn.classList.add('active');
-    else startBtn.classList.remove('active');
-});
+// Checkbox Logic
+document.getElementById('agree-check').onchange = (e) => {
+    const btn = document.getElementById('start-btn');
+    if(e.target.checked) btn.classList.add('active');
+    else btn.classList.remove('active');
+};
 
-// تفعيل زر Sign Up
-signupTrigger.addEventListener('click', () => {
-    fastLoad(() => {
-        const id = generateID();
-        const key = generateKey();
-        showMsg(`NEW ID: ${id}\nKEY: ${key.substring(0,10)}...`);
-        console.log("Full Key:", key); // الكود الكامل في الكونسول للأمان
-    });
-});
-
-// تفعيل زر Login
-loginTrigger.addEventListener('click', () => {
-    fastLoad(() => {
-        showMsg("PLEASE ENTER YOUR CREDENTIALS");
-    });
-});
-
-// تفعيل زر Start
-startBtn.addEventListener('click', () => {
-    showMsg("CONNECTING TO SERVER...");
-});
-
-function showMsg(t) {
+function showMsg(m) {
     const wrap = document.getElementById('toast-wrap');
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerText = t;
-    wrap.appendChild(toast);
-    setTimeout(() => toast.remove(), 4000);
+    const t = document.createElement('div');
+    t.className = 'toast'; t.innerText = m;
+    wrap.innerHTML = ''; wrap.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
 }
