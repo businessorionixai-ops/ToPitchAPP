@@ -1,40 +1,55 @@
 const agreeCheck = document.getElementById('agree-check');
 const startBtn = document.getElementById('start-btn');
 const loader = document.getElementById('loader');
+const signupTrigger = document.getElementById('signup-trigger');
+const loginTrigger = document.getElementById('login-trigger');
 
-// 1. توليد ID من 15 رقم
+// توليد ID من 15 رقم
 function generateID() {
     return Array.from({length: 15}, () => Math.floor(Math.random() * 10)).join('');
 }
 
-// 2. توليد Key من 30 حرف ورقم (Hex/Mix)
+// توليد Key من 30 حرف ورقم ميكس
 function generateKey() {
     const chars = "abcdef0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return Array.from({length: 30}, () => chars.charAt(Math.floor(Math.random() * chars.length))).join('');
 }
 
-// 3. نظام الـ Loading السريع
+// لودينغ سريع جداً
 function fastLoad(callback) {
     loader.style.display = 'flex';
     setTimeout(() => {
         loader.style.display = 'none';
         callback();
-    }, 400); // 0.4 ثانية برك - سرعة البرق
+    }, 300); // 0.3 ثانية
 }
 
-// 4. التحكم في زر START
+// تفعيل زر START
 agreeCheck.addEventListener('change', function() {
-    startBtn.classList.toggle('active', this.checked);
+    if(this.checked) startBtn.classList.add('active');
+    else startBtn.classList.remove('active');
 });
 
-// 5. عند الضغط على Sign Up (مثال عن توليد البيانات)
-document.getElementById('signup-trigger').addEventListener('click', () => {
+// تفعيل زر Sign Up
+signupTrigger.addEventListener('click', () => {
     fastLoad(() => {
-        const newID = generateID();
-        const newKey = generateKey();
-        console.log("ID:", newID, "KEY:", newKey);
-        showMsg("VAULT GENERATED!");
+        const id = generateID();
+        const key = generateKey();
+        showMsg(`NEW ID: ${id}\nKEY: ${key.substring(0,10)}...`);
+        console.log("Full Key:", key); // الكود الكامل في الكونسول للأمان
     });
+});
+
+// تفعيل زر Login
+loginTrigger.addEventListener('click', () => {
+    fastLoad(() => {
+        showMsg("PLEASE ENTER YOUR CREDENTIALS");
+    });
+});
+
+// تفعيل زر Start
+startBtn.addEventListener('click', () => {
+    showMsg("CONNECTING TO SERVER...");
 });
 
 function showMsg(t) {
@@ -43,5 +58,5 @@ function showMsg(t) {
     toast.className = 'toast';
     toast.innerText = t;
     wrap.appendChild(toast);
-    setTimeout(() => toast.remove(), 2500);
+    setTimeout(() => toast.remove(), 4000);
 }
